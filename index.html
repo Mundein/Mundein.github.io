@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Michael Whisenand | Labor Analyst Portfolio</title>
+    <!-- Favicon link -->
+    <link rel="icon" type="image/png" href="images/MichaelWhisenandFavicon.png">
     <!-- Google Fonts: Inter for clean typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +41,7 @@
             background-color: var(--bg-primary);
             color: var(--text-primary);
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.6;
+            line-height: 1.6; /* Normalized line-height */
             -webkit-font-smoothing: antialiased;
         }
 
@@ -71,9 +73,18 @@
             letter-spacing: -0.025em;
             text-decoration: none;
             color: var(--text-primary);
-            display: inline-block;
+            display: inline-flex; /* Inline-flex for vertical image alignment */
+            align-items: center;
+            gap: 0.5rem; /* Spacing between favicon and text */
             white-space: nowrap;
             line-height: 1.2;
+        }
+
+        .logo-img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            border-radius: 4px;
         }
 
         .logo span {
@@ -91,7 +102,7 @@
             text-decoration: none;
             color: var(--text-secondary);
             font-size: 0.9rem;
-            font-weight: 500;
+            font-weight: 500; /* Maintained at 500 on hover/active to avoid font-weight layout shift */
             transition: color var(--transition-speed) ease;
             display: inline-block;
             white-space: nowrap;
@@ -494,7 +505,10 @@
     <!-- Header Navigation -->
     <header>
         <div class="nav-container">
-            <a href="#" class="logo">M. Whisenand<span>.</span></a>
+            <a href="#" class="logo">
+                <img src="images/MichaelWhisenandFavicon.png" alt="Logo" class="logo-img">
+                M. Whisenand<span>.</span>
+            </a>
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
