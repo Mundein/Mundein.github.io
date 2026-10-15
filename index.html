@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Link Preview Metadata (Open Graph & Standard) -->
-    <title>Michael Whisenand | Operations Management and Data Analysis</title>
+    <title>Michael Whisenand | Fractional Operations &amp; Labor Analytics</title>
     <meta name="description" content="Portfolio of Michael Whisenand, Operations and Data Analytics professional specializing in the autonomous vehicle sector.">
     <meta property="og:title" content="Michael Whisenand | Operations Management and Data Analysis">
     <meta property="og:description" content="Portfolio of Michael Whisenand, Operations and Data Analytics professional specializing in the autonomous vehicle sector.">
@@ -529,6 +529,64 @@
                 gap: 0.25rem;
             }
         }
+    
+        /* --- Mobile nav fix (draft): hamburger menu at <=768px, desktop untouched --- */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            border-radius: 8px;
+            padding: 0.45rem 0.75rem;
+            font-size: 1.1rem;
+            line-height: 1;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .nav-toggle { display: block; }
+            .nav-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
+                height: auto;
+                padding: 0.9rem 1.5rem;
+            }
+            header nav { order: 3; width: 100%; }
+            header nav ul {
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                width: 100%;
+                padding-top: 0.5rem;
+            }
+            header nav ul.open { display: flex; }
+            header nav li { width: 100%; }
+            header nav a {
+                display: block;
+                padding: 0.85rem 0.25rem;
+                font-size: 1rem;
+                border-top: 1px solid var(--border-color);
+            }
+        }
+    
+        /* --- Experience items: hover float (2026-10-14) --- */
+        .experience-item {
+            padding: 1.25rem 1.25rem 1.25rem 2rem;
+            border-radius: 12px;
+            transition: border-color var(--transition-speed) ease, transform 0.35s ease, background-color 0.35s ease, box-shadow 0.35s ease;
+        }
+        .experience-item::before { top: 1.55rem; }
+        .experience-item:hover {
+            transform: translateY(-4px);
+            background-color: var(--bg-secondary);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .experience-item { transition: none; }
+            .experience-item:hover { transform: none; }
+        }
     </style>
 </head>
 <body>
@@ -540,11 +598,14 @@
                 <img src="images/MichaelWhisenandFavicon.png" alt="Logo" class="logo-img">
                 M. Whisenand<span>.</span>
             </a>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
                     <li><a href="about.html">Personal Bio</a></li>
                 </ul>
             </nav>
@@ -554,23 +615,68 @@
     <main>
         <!-- Hero Section -->
         <section id="about" class="hero">
-            <div class="hero-tagline">Operations & Labor Analytics</div>
+            <div class="hero-tagline">Fractional Operations & Labor Analytics</div>
             <h1>
                 <span>Michael Whisenand</span>
             </h1>
             <p class="hero-description">
-                Operations and Data Analytics professional specializing in the autonomous vehicle sector. Experienced in structuring predictive global staffing infrastructure, developing automated reporting pipelines, and translating high-volume operational challenges into clean technical solutions.
+                I help small fleet and operations teams run with big-operation discipline: predictive staffing models, dashboards leadership actually reads, and processes that hold up on the bad days. Built on experience running autonomous-vehicle operations across 10 global markets and 1,000+ personnel, delivered fractionally, without the full-time hire.
             </p>
             <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">View Projects</a>
-                <a href="#experience" class="btn btn-secondary">Read Experience</a>
+                <a href="https://calendly.com/michael-ash2002/discovery-call" target="_blank" rel="noopener" class="btn btn-primary">Book a Call</a>
+                <a href="mailto:michael.a.whisenand@gmail.com?subject=Discovery%20call%20request&body=Company%3A%0ATeam%20/%20fleet%20size%3A%0AWhat%20are%20you%20trying%20to%20fix%3A%0ATimeline%3A%0A" class="btn btn-secondary">Send Me an Email</a>
                 <a href="about.html" class="btn btn-secondary">Personal Bio ↗</a>
+            </div>
+        </section>
+
+        
+        <!-- Services Section (re-cut around Mikey's own statement, 2026-10-14) -->
+        <section id="services">
+            <h2 class="section-title">Services</h2>
+            <p style="color:var(--text-secondary); max-width:720px; margin-bottom:2.5rem; font-size:1.05rem; line-height:1.7;">I make small operations run organized like large operations should. I fix the little things that begin to snowball and turn into avalanches, before they become issues, and give companies both a sense of direction, and the organization to follow it. Here's what that looks like in practice:</p>
+            <div class="projects-grid">
+                <a href="#contact" class="project-card">
+                    <div>
+                        <h3 class="project-title">Staffing &amp; Schedules</h3>
+                        <p>Staffing plans and schedules built around how your operation actually runs. Coverage you can see coming, instead of gaps you discover when the shift starts.</p>
+                    </div>
+                </a>
+                <a href="#contact" class="project-card">
+                    <div>
+                        <h3 class="project-title">Dashboards &amp; Reporting</h3>
+                        <p>One daily view of the numbers that matter: readiness, utilization, downtime, and shift coverage. Built on your data, in a format leadership will actually read.</p>
+                    </div>
+                </a>
+                <a href="#contact" class="project-card">
+                    <div>
+                        <h3 class="project-title">Procedures &amp; Documentation</h3>
+                        <p>How your operation runs, written down: procedures, checklists, and the site information every location should have on record. Standardized, so the business stops living in one person's head.</p>
+                    </div>
+                </a>
+                <a href="#contact" class="project-card">
+                    <div>
+                        <h3 class="project-title">Readiness Checks</h3>
+                        <p>A regular pass over the operation to catch the little things early. Small gaps in staffing, documentation, and readiness, fixed while they're still little.</p>
+                    </div>
+                </a>
+                <a href="#contact" class="project-card">
+                    <div>
+                        <h3 class="project-title">New Location Startups</h3>
+                        <p>Opening a new location or taking over a new contract? The staffing plan, checklists, and documentation are set up before day one, so the new site starts organized instead of spending a year catching up.</p>
+                    </div>
+                </a>
+                <a href="#contact" class="project-card">
+                    <div>
+                        <h3 class="project-title">Training &amp; Onboarding</h3>
+                        <p>New hires trained the same way every time. Documented steps, clear checkpoints, and materials your leads can teach from, so quality does not depend on who happened to train them.</p>
+                    </div>
+                </a>
             </div>
         </section>
 
         <!-- Clickable Project Grid Section -->
         <section id="projects">
-            <h2 class="section-title">Technical Projects</h2>
+            <h2 class="section-title">Selected Work</h2>
             <div class="projects-grid">
 
                 <!-- Project 1: Global Workforce Tracking (WIP) -->
@@ -648,6 +754,22 @@
             <h2 class="section-title">Career Trajectory</h2>
             <div class="experience-timeline">
 
+                <!-- Role 0: Business Program Manager (current) -->
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="role-company">Magnit (Supporting Waymo)</div>
+                            <h3 class="role-title">Business Program Manager</h3>
+                        </div>
+                        <span class="role-date">Jul 2026 — Present</span>
+                    </div>
+                    <ul class="experience-details">
+                        <li>Lead site network standardization across operating locations: network information (WINs), Wi-Fi and cellular requirements, and deployment-readiness criteria, so every site is documented and runs the same way.</li>
+                        <li>Run readiness and infrastructure audits for operating sites and drive cross-functional programs spanning procurement, contractors, and site operations.</li>
+                        <li>Own program reporting and stakeholder updates for network and readiness initiatives across the operating network.</li>
+                    </ul>
+                </div>
+
                 <!-- Role 1: Labor Planning Analyst -->
                 <div class="experience-item">
                     <div class="experience-header">
@@ -655,7 +777,7 @@
                             <div class="role-company">Transdev (Contracted to Waymo)</div>
                             <h3 class="role-title">Labor Planning Analyst</h3>
                         </div>
-                        <span class="role-date">Apr 2026 — Present</span>
+                        <span class="role-date">Apr 2026 — May 2026</span>
                     </div>
                     <ul class="experience-details">
                         <li>Architect and optimize responsive labor supply planning models and predictive staffing tools across 10 global markets to maximize operational efficiency and maintain contractual output.</li>
@@ -694,61 +816,6 @@
                     </ul>
                 </div>
 
-            </div>
-
-            <!-- Prior Experience Section -->
-            <div class="prior-experience-block" style="margin-top: 5rem; border-top: 1px dashed var(--border-color); padding-top: 3.5rem;">
-                <h2 class="section-title" style="font-size: 1.4rem; margin-bottom: 2.5rem;">Prior Experience</h2>
-                <div class="experience-timeline">
-
-                    <!-- Prior Role 1: Arcadia Music -->
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div>
-                                <div class="role-company">Arcadia Music</div>
-                                <h3 class="role-title">Store Manager & Music Teacher</h3>
-                            </div>
-                            <span class="role-date">Nov 2022 — Jan 2024</span>
-                        </div>
-                        <ul class="experience-details">
-                            <li>Oversaw storefront logistics, administrative reporting infrastructure, and communication tracks while implementing standardized instructional literacy benchmarks.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Prior Role 2: Saturday Conservatory of Music -->
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div>
-                                <div class="role-company">Saturday Conservatory of Music</div>
-                                <h3 class="role-title">Music Teacher</h3>
-                            </div>
-                            <span class="role-date">Jan 2023 — Jul 2024</span>
-                        </div>
-                    </div>
-
-                    <!-- Prior Role 3: Tastea -->
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div>
-                                <div class="role-company">Tastea</div>
-                                <h3 class="role-title">Shift Supervisor</h3>
-                            </div>
-                            <span class="role-date">Jul 2022 — Nov 2022</span>
-                        </div>
-                    </div>
-
-                    <!-- Prior Role 4: CSULB IT -->
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div>
-                                <div class="role-company">California State University, Long Beach</div>
-                                <h3 class="role-title">IT Technician Assistant</h3>
-                            </div>
-                            <span class="role-date">Jun 2020 — Dec 2020</span>
-                        </div>
-                    </div>
-
-                </div>
             </div>
 
             <!-- Skills Summary Card inside Experience section -->
@@ -810,6 +877,12 @@
     <!-- Footer with real contact endpoints -->
     <footer id="contact">
         <div class="footer-container">
+            <div style="text-align:center; max-width:640px; margin:0 auto 2rem;">
+                <h2 class="section-title" style="margin-bottom:1rem;">Work With Me</h2>
+                <p style="color:var(--text-secondary); margin-bottom:1.5rem;">Running a fleet or an ops team and drowning in spreadsheets, staffing gaps, or reporting nobody trusts? Book a free discovery call. Come with the problem. Leave with a plan, whether or not we work together.</p>
+                <a href="https://calendly.com/michael-ash2002/discovery-call" target="_blank" rel="noopener" class="btn btn-primary">Book a Call</a>
+                <p style="margin-top:1rem; font-size:0.95rem; color:var(--text-secondary);">Prefer email? <a href="mailto:michael.a.whisenand@gmail.com?subject=Discovery%20call%20request&body=Company%3A%0ATeam%20/%20fleet%20size%3A%0AWhat%20are%20you%20trying%20to%20fix%3A%0ATimeline%3A%0A" style="color:var(--accent);">Send me an email</a> instead.</p>
+            </div>
             <div class="social-links">
                 <!-- GitHub -->
                 <a href="https://github.com/Mundein" target="_blank" rel="noopener noreferrer" class="social-link">
@@ -836,5 +909,24 @@
         </div>
     </footer>
 
+
+    <script>
+    // Mobile nav toggle (draft)
+    (function () {
+        var t = document.querySelector('.nav-toggle');
+        var u = document.querySelector('header nav ul');
+        if (!t || !u) return;
+        t.addEventListener('click', function () {
+            var open = u.classList.toggle('open');
+            t.setAttribute('aria-expanded', open);
+        });
+        u.querySelectorAll('a').forEach(function (a) {
+            a.addEventListener('click', function () {
+                u.classList.remove('open');
+                t.setAttribute('aria-expanded', 'false');
+            });
+        });
+    })();
+    </script>
 </body>
 </html>
