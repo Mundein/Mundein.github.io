@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Link Preview Metadata (Open Graph & Standard) -->
+    <title>Michael Whisenand | Fractional Operations &amp; Labor Analytics</title>
+    <meta name="description" content="Portfolio of Michael Whisenand, Operations and Data Analytics professional specializing in the autonomous vehicle sector.">
+    <meta property="og:title" content="Michael Whisenand | Operations Management and Data Analysis">
+    <meta property="og:description" content="Portfolio of Michael Whisenand, Operations and Data Analytics professional specializing in the autonomous vehicle sector.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/MichaelWhisenandFavicon.png">
+    
+    <!-- Favicon link -->
+    <link rel="icon" type="image/png" href="images/MichaelWhisenandFavicon.png">
+    <!-- Google Fonts: Inter for clean typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Variables for design consistency */
+        :root {
+            --bg-primary: #0b0f19;
+            --bg-secondary: #131a2b;
+            --accent: #ff5a36; /* Clean coral/orange tech accent matching resume style */
+            --accent-glow: rgba(255, 90, 54, 0.15);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border-color: #1e293b;
+            --max-width: 1000px;
+            --transition-speed: 0.2s;
+        }
+
+        /* Base Resets */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scrollbar-gutter: stable; /* Prevents global document layout shifts */
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6; /* Normalized line-height */
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation Bar (Locked Height to eliminate sub-pixel rounding shifts) */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 100;
+            height: 60px; /* Locked absolute integer height */
+        }
+
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem; /* Horizontal padding only */
+            height: 100%; /* Fills the 60px header perfectly */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: -0.025em;
+            text-decoration: none;
+            color: var(--text-primary);
+            display: inline-flex; /* Inline-flex for vertical image alignment */
+            align-items: center;
+            gap: 0.5rem; /* Spacing between favicon and text */
+            white-space: nowrap;
+            line-height: 1.2;
+        }
+
+        .logo-img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500; /* Maintained at 500 on hover/active to avoid font-weight layout shift */
+            transition: color var(--transition-speed) ease;
+            display: inline-block;
+            white-space: nowrap;
+            line-height: 1.2;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent);
+        }
+
+        /* General Section Layout */
+        section {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 5rem 1.5rem;
+            scroll-margin-top: 60px; /* Keeps anchor target aligned beautifully under locked header */
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            letter-spacing: -0.02em;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 30px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        /* Hero Header */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+
+        .hero-tagline {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--text-primary) 50%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-description {
+            font-size: clamp(1.05rem, 2vw, 1.2rem);
+            color: var(--text-secondary);
+            max-width: 750px;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all var(--transition-speed) ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--text-primary);
+            border: 1px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-secondary);
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Clickable Project Cards Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-decoration: none;
+            color: inherit;
+            position: relative; /* Setup relative base for absolute positioned WIP ribbon */
+            overflow: hidden; /* Clips the diagonal ribbon so it sits neatly inside */
+            transition: transform var(--transition-speed) ease, border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Work In Progress Ribbon */
+        .wip-ribbon {
+            position: absolute;
+            top: 12px;
+            right: -32px;
+            background-color: var(--accent);
+            color: #0b0f19; /* High-contrast deep dark text on the coral background */
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.25rem 2.25rem;
+            transform: rotate(45deg);
+            transform-origin: center;
+            z-index: 10;
+            pointer-events: none; /* Allows cursor pointer events to pass through */
+            white-space: nowrap;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-icon {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            padding-right: 2.5rem; /* Prevents title text overlapping ribbon */
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .project-card-footer {
+            margin-top: auto;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .tech-tag {
+            background-color: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        .project-link-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .project-card:hover .project-link-label {
+            color: var(--accent);
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .experience-item {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid var(--border-color);
+            transition: border-color var(--transition-speed) ease;
+        }
+
+        .experience-item:hover {
+            border-left-color: var(--accent);
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--bg-primary);
+            border: 2px solid var(--border-color);
+            transition: border-color var(--transition-speed) ease, background-color var(--transition-speed) ease;
+        }
+
+        .experience-item:hover::before {
+            border-color: var(--accent);
+            background-color: var(--accent);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .role-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .role-title span {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .role-company {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .role-date {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-family: monospace;
+        }
+
+        .experience-details {
+            list-style: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .experience-details li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .experience-details li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .skills-group {
+            margin-bottom: 2rem;
+        }
+
+        .skills-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .skills-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            background-color: var(--bg-primary);
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .social-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .social-link:hover {
+            color: var(--accent);
+        }
+
+        .social-link svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            header {
+                height: auto; /* Allow header to expand naturally on wrap */
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1.25rem 1.5rem; /* Reintroduce padding on mobile wrap */
+                height: auto;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            section {
+                padding: 3.5rem 1.5rem;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.25rem;
+            }
+        }
+    
+        /* --- Mobile nav fix (draft): hamburger menu at <=768px, desktop untouched --- */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            border-radius: 8px;
+            padding: 0.45rem 0.75rem;
+            font-size: 1.1rem;
+            line-height: 1;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .nav-toggle { display: block; }
+            .nav-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
+                height: auto;
+                padding: 0.9rem 1.5rem;
+            }
+            header nav { order: 3; width: 100%; }
+            header nav ul {
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                width: 100%;
+                padding-top: 0.5rem;
+            }
+            header nav ul.open { display: flex; }
+            header nav li { width: 100%; }
+            header nav a {
+                display: block;
+                padding: 0.85rem 0.25rem;
+                font-size: 1rem;
+                border-top: 1px solid var(--border-color);
+            }
+        }
+    
+        /* --- Motion + photo bands (2026-10-17) --- */
+        .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.in { opacity: 1; transform: none; }
+        .hero-load > * { animation: fadeUp 0.9s ease both; }
+        .hero-load > *:nth-child(2) { animation-delay: 0.12s; }
+        .hero-load > *:nth-child(3) { animation-delay: 0.24s; }
+        .hero-load > *:nth-child(4) { animation-delay: 0.36s; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+        .photo-band { max-width: 1100px; margin: 0 auto 1rem; padding: 0 20px; }
+        /* Spacing tighten (2026-10-17): less spread out */
+        .hero { min-height: auto; padding-top: 4.5rem; padding-bottom: 3rem; }
+        section { padding: 3.25rem 1.5rem; }
+        .section-title { margin-bottom: 1.75rem; }
+        .photo-band img { width: 100%; height: 340px; object-fit: cover; border-radius: 16px; display: block; }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; transition: none; }
+            .hero-load > * { animation: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="images/MichaelWhisenandFavicon.png" alt="Logo" class="logo-img">
+                M. Whisenand<span>.</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="about.html">Personal Bio</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="about" class="hero hero-load">
+            <div class="hero-tagline">Fractional Operations & Labor Analytics</div>
+            <h1>
+                <span>Michael Whisenand</span>
+            </h1>
+            <p class="hero-description">
+                Operations help for small fleets and ops teams. Staffing, reporting, and organization, without the cost of a full-time hire.
+            </p>
+            <div class="hero-buttons">
+                <a href="https://calendly.com/michaelwhisenand/discovery-call" target="_blank" rel="noopener" class="btn btn-primary">Book a Call</a>
+                <a href="mailto:michael.a.whisenand@gmail.com?subject=Discovery%20call%20request&body=Company%3A%0ATeam%20/%20fleet%20size%3A%0AWhat%20are%20you%20trying%20to%20fix%3A%0ATimeline%3A%0A" class="btn btn-secondary">Send Me an Email</a>
+                <a href="about.html" class="btn btn-secondary">Personal Bio ↗</a>
+            </div>
+        </section>
+
+        
+        <!-- Services Section (re-cut around Mikey's own statement, 2026-10-14) -->
+        <section id="services" class="reveal">
+            <h2 class="section-title">Services</h2>
+            <p style="color:var(--text-secondary); max-width:720px; margin-bottom:2.5rem; font-size:1.05rem; line-height:1.7;">I make small operations run organized like large operations should. I fix the little things that begin to snowball and turn into avalanches, before they become issues, and give companies both a sense of direction, and the organization to follow it. Here's what that looks like in practice:</p>
+            <div class="projects-grid">
+                <a href="#contact" class="project-card reveal">
+                    <div>
+                        <h3 class="project-title">Staffing &amp; Schedules</h3>
+                        <p>Staffing plans and schedules built around how your operation actually runs. Coverage you can see coming, not gaps you find at shift start.</p>
+                    </div>
+                </a>
+                <a href="#contact" class="project-card reveal">
+                    <div>
+                        <h3 class="project-title">Dashboards &amp; Reporting</h3>
+                        <p>One view of the numbers that matter: readiness, utilization, downtime, coverage. Built on your data, readable at a glance.</p>
+                    </div>
+                </a>
+                <a href="#contact" class="project-card reveal">
+                    <div>
+                        <h3 class="project-title">Procedures &amp; Documentation</h3>
+                        <p>How your operation runs, written down. Procedures, checklists, and site records, standardized so the business stops living in one person's head.</p>
+                    </div>
+                </a>
+                <a href="#contact" class="project-card reveal">
+                    <div>
+                        <h3 class="project-title">Readiness Checks</h3>
+                        <p>A regular pass over the operation to catch small gaps early, while they are still cheap to fix.</p>
+                    </div>
+                </a>
+                <a href="#contact" class="project-card reveal">
+                    <div>
+                        <h3 class="project-title">New Location Startups</h3>
+                        <p>A new site or new contract, set up before day one. Staffing plan, checklists, and documentation in place from the start.</p>
+                    </div>
+                </a>
+                <a href="#contact" class="project-card reveal">
+                    <div>
+                        <h3 class="project-title">Training &amp; Onboarding</h3>
+                        <p>New hires trained the same way every time, with documented steps and materials your leads can teach from.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Clickable Project Grid Section -->
+        <section id="projects" class="reveal">
+            <h2 class="section-title">Selected Work</h2>
+            <div class="projects-grid">
+
+                <!-- Project 1: Global Workforce Tracking (WIP) -->
+                <a href="https://github.com/Mundein/labor-planning-analytics" target="_blank" rel="noopener noreferrer" class="project-card reveal">
+                    <!-- Diagonal WIP Banner -->
+                    <div class="wip-ribbon">WIP</div>
+                    <div>
+                        <div class="project-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+                        </div>
+                        <h3 class="project-title">Workforce Tracking & Capacity Dashboard</h3>
+                        <p class="project-description">
+                            A tracking matrix mapping daily shift distributions and rostered days off (RDO) for 1,000+ personnel across 10 global markets. Centralizes cross-role headcount alongside predictive supply-vs-demand modeling to flag labor deficits.
+                        </p>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-tech">
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Google Query</span>
+                            <span class="tech-tag">Data Visualization</span>
+                        </div>
+                        <div class="project-link-label">View Codebase ↗</div>
+                    </div>
+                </a>
+
+                <!-- Project 2: Live Incident Parser & Analyzer (WIP) -->
+                <a href="https://github.com/Mundein" target="_blank" rel="noopener noreferrer" class="project-card reveal">
+                    <!-- Diagonal WIP Banner -->
+                    <div class="wip-ribbon">WIP</div>
+                    <div>
+                        <div class="project-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                        <h3 class="project-title">Live Fleet Incident Analyzer</h3>
+                        <p class="project-description">
+                            An analytical tool using structured prompts and script libraries to parse messy vehicle dispatch logs into organized, JSON-compliant categories, assisting safety operators during real-time field evaluation.
+                        </p>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">API Integration</span>
+                        </div>
+                        <div class="project-link-label">View Repository ↗</div>
+                    </div>
+                </a>
+
+                <!-- Project 3: Other Projects -->
+                <a href="https://github.com/Mundein" target="_blank" rel="noopener noreferrer" class="project-card reveal">
+                    <div>
+                        <div class="project-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        </div>
+                        <h3 class="project-title">Other Projects</h3>
+                        <p class="project-description">
+                            Explore additional repositories, analytical experiments, and custom scripting tools built to solve operational bottlenecks, manage logistical data, and automate repetitive workflows.
+                        </p>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Automation</span>
+                        </div>
+                        <div class="project-link-label">Explore Profile ↗</div>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        
+    </main>
+
+    <!-- Footer with real contact endpoints -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div style="text-align:center; max-width:640px; margin:0 auto 2rem;">
+                <h2 class="section-title" style="margin-bottom:1rem;">Work With Me</h2>
+                <p style="color:var(--text-secondary); margin-bottom:1.5rem;">Running a fleet or an ops team and drowning in spreadsheets, staffing gaps, or reporting nobody trusts? Book a free discovery call. Come with the problem. Leave with a plan, whether or not we work together.</p>
+                <a href="https://calendly.com/michaelwhisenand/discovery-call" target="_blank" rel="noopener" class="btn btn-primary">Book a Call</a>
+                <p style="margin-top:1rem; font-size:0.95rem; color:var(--text-secondary);">Prefer email? <a href="mailto:michael.a.whisenand@gmail.com?subject=Discovery%20call%20request&body=Company%3A%0ATeam%20/%20fleet%20size%3A%0AWhat%20are%20you%20trying%20to%20fix%3A%0ATimeline%3A%0A" style="color:var(--accent);">Send me an email</a> instead.</p>
+            </div>
+            <div class="social-links">
+                <!-- GitHub -->
+                <a href="https://github.com/Mundein" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                    GitHub
+                </a>
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com/in/michaelwhisenand" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    LinkedIn
+                </a>
+                <!-- Email -->
+                <a href="mailto:michael.a.whisenand@gmail.com" class="social-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    michael.a.whisenand@gmail.com
+                </a>
+                <!-- Phone -->
+                <span class="social-link" style="cursor: default;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    (626) 710-5882
+                </span>
+            </div>
+            <p class="copyright">© 2025 Michael Whisenand. Los Angeles, CA.</p>
+        </div>
+    </footer>
+
+
+    <script>
+    // Mobile nav toggle (draft)
+    (function () {
+        var t = document.querySelector('.nav-toggle');
+        var u = document.querySelector('header nav ul');
+        if (!t || !u) return;
+        t.addEventListener('click', function () {
+            var open = u.classList.toggle('open');
+            t.setAttribute('aria-expanded', open);
+        });
+        u.querySelectorAll('a').forEach(function (a) {
+            a.addEventListener('click', function () {
+                u.classList.remove('open');
+                t.setAttribute('aria-expanded', 'false');
+            });
+        });
+    })();
+    </script>
+
+    <script>
+    // Scroll reveal (2026-10-17)
+    (function () {
+        var els = document.querySelectorAll('.reveal');
+        if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+        }, { threshold: 0.12 });
+        els.forEach(function (e) { io.observe(e); });
+    })();
+    </script>
+</body>
+</html>
