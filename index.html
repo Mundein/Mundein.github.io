@@ -6,9 +6,9 @@
 
     <!-- Link Preview Metadata (Open Graph & Standard) -->
     <title>Michael Whisenand | Fractional Operations and Labor Analytics</title>
-    <meta name="description" content="Fractional operations and labor analytics for independent operators running 20 to 50 vehicles or crews. Operations Review $1,499 flat. Evenings and weekends, Los Angeles.">
+    <meta name="description" content="Fractional operations and labor analytics for independent operators running fleets, field crews, and multi site teams. Operations Review $1,499 flat. Evenings and weekends, Los Angeles.">
     <meta property="og:title" content="Michael Whisenand | Fractional Operations and Labor Analytics">
-    <meta property="og:description" content="Fractional operations and labor analytics for independent operators running 20 to 50 vehicles or crews. Operations Review $1,499 flat. Evenings and weekends, Los Angeles.">
+    <meta property="og:description" content="Fractional operations and labor analytics for independent operators running fleets, field crews, and multi site teams. Operations Review $1,499 flat. Evenings and weekends, Los Angeles.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="images/MichaelWhisenandFavicon.png">
 
@@ -185,7 +185,7 @@
             font-size: clamp(1.05rem, 2vw, 1.2rem);
             color: var(--text-secondary);
             max-width: 750px;
-            margin-bottom: 2.5rem;
+            margin-bottom: 1.1rem;
             font-weight: 400;
         }
 
@@ -531,12 +531,33 @@
             font-weight: 600;
             display: inline-block;
             white-space: nowrap;
-            transition: opacity 0.4s ease, transform 0.4s ease;
+            transition: opacity 0.45s ease;
         }
 
         .rotator.fade {
             opacity: 0;
-            transform: translateY(6px);
+        }
+
+        .hero-ops {
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-ops-label {
+            display: block;
+            color: var(--text-secondary);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+        }
+
+        .hero-ops .rotator {
+            display: block;
+            font-size: 1.35rem;
+            font-weight: 700;
+            line-height: 1.3;
+            min-height: 1.3em;
         }
 
         /* Short intro line under a section title */
@@ -808,8 +829,9 @@
                     Fractional operations and labor analytics, <span>priced in the open.</span>
                 </h1>
                 <p class="hero-description">
-                    Fractional operations and labor analytics for independent operators running <span class="rotator" id="rotator">20 to 50 vehicles</span>. Scheduling, labor cost, dispatch, and documentation get reviewed end to end, and the findings land as a written report and a 90 day fix plan. Evenings and weekends, with every price stated on this page.
+                    Fractional operations and labor analytics for independent operators. Scheduling, labor cost, dispatch, and documentation get reviewed end to end, and the findings land as a written report and a 90 day fix plan. Evenings and weekends, with every price stated on this page.
                 </p>
+                <p class="hero-ops"><span class="hero-ops-label">Built for operators running</span><span class="rotator" id="rotator">20 to 50 vehicles</span></p>
                 <div class="hero-buttons">
                     <a href="sms:+13235469820" class="btn btn-primary">Text to Start</a>
                     <a href="https://calendly.com/michaelwhisenand/discovery-call" class="btn btn-secondary">Book a Call</a>
@@ -1187,8 +1209,9 @@
     </footer>
 
     <script>
-        // Rotating operator size in the hero description
-        var words = ["20 to 50 vehicles", "20 to 50 crew members", "multiple sites", "mixed fleets", "round the clock shifts"];
+        // Rotating operation type. It sits on its own hero line, so the
+        // layout around it never moves: fade out, swap the words, fade in.
+        var words = ["20 to 50 vehicles", "field service crews", "delivery routes", "multiple sites", "round the clock shifts", "seasonal teams", "installation crews", "mixed fleets"];
         var rotator = document.getElementById("rotator");
         var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         if (rotator && !reduceMotion) {
@@ -1199,10 +1222,10 @@
                     wi = (wi + 1) % words.length;
                     rotator.textContent = words[wi];
                     rotator.classList.remove("fade");
-                    setTimeout(rotCycle, 3000);
-                }, 400);
+                    setTimeout(rotCycle, 3200);
+                }, 470);
             };
-            setTimeout(rotCycle, 3000);
+            setTimeout(rotCycle, 3200);
         }
 
     </script>
