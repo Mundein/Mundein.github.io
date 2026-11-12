@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Link Preview Metadata (Open Graph & Standard) -->
-    <title>Michael Whisenand | Fractional Operations &amp; Labor Analytics</title>
-    <meta name="description" content="Portfolio of Michael Whisenand, Operations and Data Analytics professional specializing in the autonomous vehicle sector.">
-    <meta property="og:title" content="Michael Whisenand | Operations Management and Data Analysis">
-    <meta property="og:description" content="Portfolio of Michael Whisenand, Operations and Data Analytics professional specializing in the autonomous vehicle sector.">
+    <title>Michael Whisenand | Fractional Operations and Labor Analytics</title>
+    <meta name="description" content="Fractional operations and labor analytics for independent operators running 20 to 50 vehicles or crews. Operations Review $1,499 flat. Evenings and weekends, Los Angeles.">
+    <meta property="og:title" content="Michael Whisenand | Fractional Operations and Labor Analytics">
+    <meta property="og:description" content="Fractional operations and labor analytics for independent operators running 20 to 50 vehicles or crews. Operations Review $1,499 flat. Evenings and weekends, Los Angeles.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="images/MichaelWhisenandFavicon.png">
-    
+
     <!-- Favicon link -->
     <link rel="icon" type="image/png" href="images/MichaelWhisenandFavicon.png">
     <!-- Google Fonts: Inter for clean typography -->
@@ -252,13 +252,6 @@
             transition: transform var(--transition-speed) ease, border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
         }
 
-        .project-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Work In Progress Ribbon */
         .wip-ribbon {
             position: absolute;
             top: 12px;
@@ -276,6 +269,12 @@
             pointer-events: none; /* Allows cursor pointer events to pass through */
             white-space: nowrap;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
 
         .project-icon {
@@ -502,6 +501,246 @@
             color: var(--text-secondary);
         }
 
+        /* Consulting overhaul additions, written in the same token system */
+
+        /* The one borrowed treatment: a layered radial gradient wash behind the hero, recolored to this palette */
+        .hero {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: -35%;
+            background:
+                radial-gradient(420px 300px at 18% 30%, rgba(255, 90, 54, 0.16), transparent 65%),
+                radial-gradient(520px 360px at 85% 15%, rgba(71, 96, 148, 0.20), transparent 65%),
+                radial-gradient(600px 420px at 60% 95%, rgba(148, 163, 184, 0.08), transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Rotating operator size in the hero description */
+        .rotator {
+            color: var(--accent);
+            font-weight: 600;
+            display: inline-block;
+            white-space: nowrap;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .rotator.fade {
+            opacity: 0;
+            transform: translateY(6px);
+        }
+
+        /* Short intro line under a section title */
+        .section-intro {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            max-width: 640px;
+            margin-top: -1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Bordered panels in the skills-container idiom */
+        .check-panel, .answers-panel, .contact-panel {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+
+        /* Self check */
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+            padding: 0.9rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-bottom: 0.75rem;
+            cursor: pointer;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            transition: border-color var(--transition-speed) ease, background-color var(--transition-speed) ease;
+        }
+
+        .check-item:hover {
+            border-color: var(--text-secondary);
+        }
+
+        .check-item input {
+            width: 18px;
+            height: 18px;
+            margin-top: 3px;
+            accent-color: var(--accent);
+            flex: none;
+            cursor: pointer;
+        }
+
+        .check-item:has(input:checked) {
+            border-color: var(--accent);
+            background-color: rgba(255, 90, 54, 0.06);
+        }
+
+        .check-result {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1.75rem;
+        }
+
+        .check-count {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+
+        .check-count small {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-top: 0.4rem;
+        }
+
+        .check-verdict {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            flex: 1;
+            min-width: 220px;
+        }
+
+        #checkCta {
+            transition: opacity var(--transition-speed) ease;
+        }
+
+        #checkCta.dim {
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        /* Pricing, presented in the project-card idiom */
+        .plan-price {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .plan-price span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            letter-spacing: 0;
+        }
+
+        .plan-terms {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1.25rem;
+        }
+
+        .project-card .experience-details {
+            margin-bottom: 1.25rem;
+        }
+
+        .project-card .skills-label {
+            margin-top: 1.5rem;
+        }
+
+        .plan-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        .plan-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .plan-email:hover {
+            color: var(--accent);
+        }
+
+        .price-note {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 2rem;
+        }
+
+        /* Straight answers, grouped like the skills card */
+        .faq-item {
+            margin-bottom: 2rem;
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-q {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-a {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .faq-a a, .contact-note a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .faq-a a:hover, .contact-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact panel */
+        .contact-panel p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            max-width: 560px;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-note {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 1.25rem;
+            margin-bottom: 0;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .rotator { transition: none; }
+        }
+
         /* Responsive Breakpoints */
         @media (max-width: 768px) {
             header {
@@ -517,6 +756,8 @@
 
             nav ul {
                 gap: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
             }
 
             section {
@@ -528,64 +769,11 @@
                 align-items: flex-start;
                 gap: 0.25rem;
             }
-        }
-    
-        /* --- Mobile nav fix (draft): hamburger menu at <=768px, desktop untouched --- */
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-            border-radius: 8px;
-            padding: 0.45rem 0.75rem;
-            font-size: 1.1rem;
-            line-height: 1;
-            cursor: pointer;
-        }
-        @media (max-width: 768px) {
-            .nav-toggle { display: block; }
-            .nav-container {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                align-items: center;
-                height: auto;
-                padding: 0.9rem 1.5rem;
-            }
-            header nav { order: 3; width: 100%; }
-            header nav ul {
-                display: none;
+
+            .check-result {
                 flex-direction: column;
-                align-items: stretch;
-                gap: 0;
-                width: 100%;
-                padding-top: 0.5rem;
+                align-items: flex-start;
             }
-            header nav ul.open { display: flex; }
-            header nav li { width: 100%; }
-            header nav a {
-                display: block;
-                padding: 0.85rem 0.25rem;
-                font-size: 1rem;
-                border-top: 1px solid var(--border-color);
-            }
-        }
-    
-        /* --- Motion + photo bands (2026-10-17) --- */
-        .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
-        .reveal.in { opacity: 1; transform: none; }
-        .hero-load > * { animation: fadeUp 0.9s ease both; }
-        .hero-load > *:nth-child(2) { animation-delay: 0.12s; }
-        .hero-load > *:nth-child(3) { animation-delay: 0.24s; }
-        .hero-load > *:nth-child(4) { animation-delay: 0.36s; }
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-        /* Spacing tighten (2026-10-17): less spread out */
-        .hero { min-height: auto; padding-top: 4.5rem; padding-bottom: 3rem; }
-        section { padding: 3.25rem 1.5rem; }
-        .section-title { margin-bottom: 1.75rem; }
-        @media (prefers-reduced-motion: reduce) {
-            .reveal { opacity: 1; transform: none; transition: none; }
-            .hero-load > * { animation: none; }
         }
     </style>
 </head>
@@ -598,13 +786,13 @@
                 <img src="images/MichaelWhisenandFavicon.png" alt="Logo" class="logo-img">
                 M. Whisenand<span>.</span>
             </a>
-            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
             <nav>
                 <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
+                    <li><a href="#background">Background</a></li>
                     <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#answers">Answers</a></li>
                     <li><a href="about.html">Personal Bio</a></li>
                 </ul>
             </nav>
@@ -613,73 +801,92 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="about" class="hero hero-load">
-            <div class="hero-tagline">Fractional Operations & Labor Analytics</div>
-            <h1>
-                <span>Michael Whisenand</span>
-            </h1>
-            <p class="hero-description">
-                Operations help for small fleets and ops teams. Staffing, reporting, and organization, without the cost of a full-time hire.
-            </p>
-            <div class="hero-buttons">
-                <a href="https://calendly.com/michaelwhisenand/discovery-call" target="_blank" rel="noopener" class="btn btn-primary">Book a Call</a>
-                <a href="mailto:michael.a.whisenand@gmail.com?subject=Discovery%20call%20request&body=Company%3A%0ATeam%20/%20fleet%20size%3A%0AWhat%20are%20you%20trying%20to%20fix%3A%0ATimeline%3A%0A" class="btn btn-secondary">Send Me an Email</a>
-                <a href="about.html" class="btn btn-secondary">Personal Bio ↗</a>
+        <section id="about" class="hero">
+            <div class="hero-inner">
+                <div class="hero-tagline">Fractional Operations & Labor Analytics</div>
+                <h1>
+                    Fractional operations and labor analytics, <span>priced in the open.</span>
+                </h1>
+                <p class="hero-description">
+                    Fractional operations and labor analytics for independent operators running <span class="rotator" id="rotator">20 to 50 vehicles</span>. Scheduling, labor cost, dispatch, and documentation get reviewed end to end, and the findings land as a written report and a 90 day fix plan. Evenings and weekends, with every price stated on this page.
+                </p>
+                <div class="hero-buttons">
+                    <a href="sms:+13235469820" class="btn btn-primary">Text to Start</a>
+                    <a href="https://calendly.com/michaelwhisenand/discovery-call" class="btn btn-secondary">Book a Call</a>
+                    <a href="about.html" class="btn btn-secondary">Personal Bio ↗</a>
+                </div>
             </div>
         </section>
 
-        
-        <!-- Services Section (re-cut around Mikey's own statement, 2026-10-14) -->
-        <section id="services" class="reveal">
-            <h2 class="section-title">Services</h2>
-            <p style="color:var(--text-secondary); max-width:720px; margin-bottom:2.5rem; font-size:1.05rem; line-height:1.7;">I make small operations run organized like large operations should. I fix the little things that begin to snowball and turn into avalanches, before they become issues, and give companies both a sense of direction, and the organization to follow it. Here's what that looks like in practice:</p>
+
+        <!-- What You Get Section -->
+        <section id="background">
+            <h2 class="section-title">What You Get</h2>
+            <p class="section-intro">A review that ends in numbers and a plan, not a slide deck.</p>
             <div class="projects-grid">
-                <a href="#contact" class="project-card reveal">
+
+                <!-- Card 1: Where I Look -->
+                <div class="project-card">
                     <div>
-                        <h3 class="project-title">Staffing &amp; Schedules</h3>
-                        <p>Staffing plans and schedules built around how your operation actually runs. Coverage you can see coming, not gaps you find at shift start.</p>
+                        <div class="project-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        </div>
+                        <h3 class="project-title">Where I Look</h3>
+                        <ul class="experience-details">
+                            <li>Scheduling, and what each shift really costs you</li>
+                            <li>Labor cost per job, route, or run</li>
+                            <li>Dispatch, how work gets assigned and covered</li>
+                            <li>Documentation, procedures, checklists, records</li>
+                            <li>The gaps between what is written and what happens</li>
+                        </ul>
                     </div>
-                </a>
-                <a href="#contact" class="project-card reveal">
+                    <div class="project-card-footer">
+                        <div class="project-tech">
+                            <span class="tech-tag">Scheduling</span>
+                            <span class="tech-tag">Labor Cost</span>
+                            <span class="tech-tag">Dispatch</span>
+                            <span class="tech-tag">Documentation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: The Background Behind It -->
+                <div class="project-card">
                     <div>
-                        <h3 class="project-title">Dashboards &amp; Reporting</h3>
-                        <p>One view of the numbers that matter: readiness, utilization, downtime, coverage. Built on your data, readable at a glance.</p>
+                        <div class="project-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                        </div>
+                        <h3 class="project-title">The Background Behind It</h3>
+                        <ul class="experience-details">
+                            <li>Labor supply planning and staffing models across 10 markets</li>
+                            <li>Workforce tracking for 1,000+ personnel</li>
+                            <li>Ran day to day operations for layered site teams</li>
+                            <li>Led teams of 25 and up, including scheduling and procedures</li>
+                            <li>Dashboards and automated reporting in Sheets, SQL, and Python</li>
+                        </ul>
                     </div>
-                </a>
-                <a href="#contact" class="project-card reveal">
-                    <div>
-                        <h3 class="project-title">Procedures &amp; Documentation</h3>
-                        <p>How your operation runs, written down. Procedures, checklists, and site records, standardized so the business stops living in one person's head.</p>
+                    <div class="project-card-footer">
+                        <div class="project-tech">
+                            <span class="tech-tag">10 Markets</span>
+                            <span class="tech-tag">1,000+ Personnel</span>
+                            <span class="tech-tag">Sheets</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
                     </div>
-                </a>
-                <a href="#contact" class="project-card reveal">
-                    <div>
-                        <h3 class="project-title">Readiness Checks</h3>
-                        <p>A regular pass over the operation to catch small gaps early, while they are still cheap to fix.</p>
-                    </div>
-                </a>
-                <a href="#contact" class="project-card reveal">
-                    <div>
-                        <h3 class="project-title">New Location Startups</h3>
-                        <p>A new site or new contract, set up before day one. Staffing plan, checklists, and documentation in place from the start.</p>
-                    </div>
-                </a>
-                <a href="#contact" class="project-card reveal">
-                    <div>
-                        <h3 class="project-title">Training &amp; Onboarding</h3>
-                        <p>New hires trained the same way every time, with documented steps and materials your leads can teach from.</p>
-                    </div>
-                </a>
+                </div>
+
             </div>
         </section>
 
-        <!-- Clickable Project Grid Section -->
-        <section id="projects" class="reveal">
-            <h2 class="section-title">Selected Work</h2>
+        <!-- Pricing Section -->
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2 class="section-title">Technical Projects</h2>
             <div class="projects-grid">
 
                 <!-- Project 1: Global Workforce Tracking (WIP) -->
-                <a href="https://github.com/Mundein/labor-planning-analytics" target="_blank" rel="noopener noreferrer" class="project-card reveal">
+                <a href="https://github.com/Mundein/labor-planning-analytics" target="_blank" rel="noopener noreferrer" class="project-card">
                     <!-- Diagonal WIP Banner -->
                     <div class="wip-ribbon">WIP</div>
                     <div>
@@ -702,7 +909,7 @@
                 </a>
 
                 <!-- Project 2: Live Incident Parser & Analyzer (WIP) -->
-                <a href="https://github.com/Mundein" target="_blank" rel="noopener noreferrer" class="project-card reveal">
+                <a href="https://github.com/Mundein" target="_blank" rel="noopener noreferrer" class="project-card">
                     <!-- Diagonal WIP Banner -->
                     <div class="wip-ribbon">WIP</div>
                     <div>
@@ -725,7 +932,7 @@
                 </a>
 
                 <!-- Project 3: Other Projects -->
-                <a href="https://github.com/Mundein" target="_blank" rel="noopener noreferrer" class="project-card reveal">
+                <a href="https://github.com/Mundein" target="_blank" rel="noopener noreferrer" class="project-card">
                     <div>
                         <div class="project-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
@@ -748,19 +955,211 @@
             </div>
         </section>
 
-        <!-- Experience Section -->
-        
+        <section id="pricing">
+            <h2 class="section-title">Pricing</h2>
+            <p class="section-intro">Three ways in. Prices flat, stated up front.</p>
+            <div class="projects-grid">
+
+                <!-- Plan 1: Operations Review -->
+                <div class="project-card">
+                    <div>
+                        <div class="project-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                        </div>
+                        <h3 class="project-title">Operations Review</h3>
+                        <div class="plan-price">$1,499 <span>flat</span></div>
+                        <p class="plan-terms">$750 to start, balance when the report lands</p>
+                        <ul class="experience-details">
+                            <li>Scheduling, labor cost, dispatch, and documentation reviewed end to end</li>
+                            <li>Findings report in plain language</li>
+                            <li>A 90 day fix plan, sequenced by impact</li>
+                            <li>One working session to walk it all through</li>
+                            <li>Done in about two weeks, evenings and Saturdays</li>
+                        </ul>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="plan-actions">
+                            <a href="sms:+13235469820?&body=Hi%20Michael%2C%20I%20want%20details%20on%20the%20Operations%20Review%20(%241%2C499%20flat).%20My%20company%20is%3A%20" class="project-link-label">Ask about Operations Review ↗</a>
+                            <a href="mailto:michael.a.whisenand@gmail.com?subject=Details%20on%20Operations%20Review&body=Company%20name%3A%20%0AFleet%20size%3A%20%0ACity%3A%20" class="plan-email">Email about this plan</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plan 2: Review + Build -->
+                <div class="project-card">
+                    <div>
+                        <div class="project-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                        </div>
+                        <h3 class="project-title">Review + Build</h3>
+                        <div class="plan-price">$2,499 <span>flat</span></div>
+                        <p class="plan-terms">Half to start, balance at handoff</p>
+                        <ul class="experience-details">
+                            <li>Everything in the Operations Review</li>
+                            <li>The fixes built inside your own systems</li>
+                            <li>Trackers and dashboards on tools you already have</li>
+                            <li>Documents and procedures written and left with you</li>
+                            <li>Walkthrough at handoff, evenings or Saturday</li>
+                        </ul>
+                        <div class="skills-label">Built to stay yours</div>
+                        <ul class="experience-details">
+                            <li>Built in your own accounts and files</li>
+                            <li>No new software to buy</li>
+                            <li>Nothing hosted by me that you depend on</li>
+                        </ul>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="plan-actions">
+                            <a href="sms:+13235469820?&body=Hi%20Michael%2C%20I%20want%20details%20on%20Review%20%2B%20Build%20(%242%2C499%20flat).%20My%20company%20is%3A%20" class="project-link-label">Ask about Review + Build ↗</a>
+                            <a href="mailto:michael.a.whisenand@gmail.com?subject=Details%20on%20Review%20%2B%20Build&body=Company%20name%3A%20%0AFleet%20size%3A%20%0ACity%3A%20" class="plan-email">Email about this plan</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plan 3: Monthly Support -->
+                <div class="project-card">
+                    <div>
+                        <div class="project-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <h3 class="project-title">Monthly Support</h3>
+                        <div class="plan-price">$750 <span>per month</span></div>
+                        <p class="plan-terms">Month to month, capped at 6 hours a month</p>
+                        <ul class="experience-details">
+                            <li>Only offered after a Review or a Build</li>
+                            <li>Schedule and labor cost checks each month</li>
+                            <li>Dashboard and tracker upkeep</li>
+                            <li>A short written note on what changed</li>
+                            <li>Evenings and weekends, like everything here</li>
+                        </ul>
+                        <div class="skills-label">Ground rules</div>
+                        <ul class="experience-details">
+                            <li>6 hour monthly cap, stated up front</li>
+                            <li>Month to month. Cancel any time.</li>
+                        </ul>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="plan-actions">
+                            <a href="sms:+13235469820?&body=Hi%20Michael%2C%20I%20want%20details%20on%20Monthly%20Support%20(%24750%2Fmo).%20My%20company%20is%3A%20" class="project-link-label">Ask about Monthly Support ↗</a>
+                            <a href="mailto:michael.a.whisenand@gmail.com?subject=Details%20on%20Monthly%20Support&body=Company%20name%3A%20%0AFleet%20size%3A%20%0ACity%3A%20" class="plan-email">Email about this plan</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <p class="price-note">Half the flat price starts the work. Monthly Support runs month to month.</p>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-intro">Mostly in writing, by text and email. A call when it helps.</p>
+            <div class="experience-timeline">
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="role-title">You Reach Out</h3>
+                        <span class="role-date">Step 1</span>
+                    </div>
+                    <ul class="experience-details">
+                        <li>Text, email, or book a call. Tell me what you run and how many vehicles or crew.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="role-title">A Short Intake</h3>
+                        <span class="role-date">Step 2</span>
+                    </div>
+                    <ul class="experience-details">
+                        <li>Schedules, labor cost, dispatch, documents. About twenty minutes, in writing or on a call.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="role-title">$750 Starts the Review</h3>
+                        <span class="role-date">Step 3</span>
+                    </div>
+                    <ul class="experience-details">
+                        <li>Half down by payment link. The review clock starts that day.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="role-title">Findings, Walked Through</h3>
+                        <span class="role-date">Step 4</span>
+                    </div>
+                    <ul class="experience-details">
+                        <li>One working session, evening or Saturday. Every finding tied to a dollar or an hour.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="role-title">Report and 90 Day Plan Land</h3>
+                        <span class="role-date">Step 5</span>
+                    </div>
+                    <ul class="experience-details">
+                        <li>Balance due on delivery. Build and Support are there if you want them.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Straight Answers Section -->
+        <section id="answers">
+            <h2 class="section-title">Straight Answers</h2>
+            <div class="answers-panel">
+
+                <div class="faq-item">
+                    <div class="faq-q">What does it cost, total?</div>
+                    <p class="faq-a">Three ways in. The Operations Review is $1,499 flat, with $750 to start and the balance when the report lands. Review + Build is $2,499 flat, half to start. Monthly Support is $750 a month, month to month, capped at 6 hours a month, and it is only offered after a Review or Build. No hourly billing and no surprise invoices.</p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">Do we have to talk on the phone?</div>
+                    <p class="faq-a">No. Most of it runs in writing, by text and email, so the findings and the plan sit in front of you before you pay. If you would rather talk it through first, <a href="https://calendly.com/michaelwhisenand/discovery-call">Book a call</a> on an evening that suits you.</p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">When does the work happen?</div>
+                    <p class="faq-a">Evenings and weekends. A Review runs about two weeks, and the walkthrough session gets booked at a time your operation is quiet.</p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">What do you need from us?</div>
+                    <p class="faq-a">Your schedules, your labor numbers as they stand, and an honest account of where it hurts. Messy is fine. Messy is the starting point for most operators.</p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">Who owns the report and the dashboards?</div>
+                    <p class="faq-a">You do. Everything is built in your systems and your accounts, and it stays with you even if we stop working together.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="start">
+            <h2 class="section-title">Start With a Text</h2>
+            <div class="contact-panel">
+                <p>Tell me what you run and roughly how many vehicles or crew you carry. That is enough to start.</p>
+                <div class="hero-buttons">
+                    <a href="sms:+13235469820" class="btn btn-primary">Text (323) 546-9820</a>
+                    <a href="mailto:michael.a.whisenand@gmail.com" class="btn btn-secondary">Email michael.a.whisenand@gmail.com</a>
+                </div>
+                <p class="contact-note">You will hear back within one business day.</p>
+                <p class="contact-note">Rather talk it through? <a href="https://calendly.com/michaelwhisenand/discovery-call">Book a call</a>, evenings 6 to 9 PM Pacific.</p>
+            </div>
+        </section>
     </main>
 
     <!-- Footer with real contact endpoints -->
     <footer id="contact">
         <div class="footer-container">
-            <div style="text-align:center; max-width:640px; margin:0 auto 2rem;">
-                <h2 class="section-title" style="margin-bottom:1rem;">Work With Me</h2>
-                <p style="color:var(--text-secondary); margin-bottom:1.5rem;">Running a fleet or an ops team and drowning in spreadsheets, staffing gaps, or reporting nobody trusts? Book a free discovery call. Come with the problem. Leave with a plan, whether or not we work together.</p>
-                <a href="https://calendly.com/michaelwhisenand/discovery-call" target="_blank" rel="noopener" class="btn btn-primary">Book a Call</a>
-                <p style="margin-top:1rem; font-size:0.95rem; color:var(--text-secondary);">Prefer email? <a href="mailto:michael.a.whisenand@gmail.com?subject=Discovery%20call%20request&body=Company%3A%0ATeam%20/%20fleet%20size%3A%0AWhat%20are%20you%20trying%20to%20fix%3A%0ATimeline%3A%0A" style="color:var(--accent);">Send me an email</a> instead.</p>
-            </div>
             <div class="social-links">
                 <!-- GitHub -->
                 <a href="https://github.com/Mundein" target="_blank" rel="noopener noreferrer" class="social-link">
@@ -787,36 +1186,26 @@
         </div>
     </footer>
 
-
     <script>
-    // Mobile nav toggle (draft)
-    (function () {
-        var t = document.querySelector('.nav-toggle');
-        var u = document.querySelector('header nav ul');
-        if (!t || !u) return;
-        t.addEventListener('click', function () {
-            var open = u.classList.toggle('open');
-            t.setAttribute('aria-expanded', open);
-        });
-        u.querySelectorAll('a').forEach(function (a) {
-            a.addEventListener('click', function () {
-                u.classList.remove('open');
-                t.setAttribute('aria-expanded', 'false');
-            });
-        });
-    })();
+        // Rotating operator size in the hero description
+        var words = ["20 to 50 vehicles", "20 to 50 crew members", "multiple sites", "mixed fleets", "round the clock shifts"];
+        var rotator = document.getElementById("rotator");
+        var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (rotator && !reduceMotion) {
+            var wi = 0;
+            var rotCycle = function () {
+                rotator.classList.add("fade");
+                setTimeout(function () {
+                    wi = (wi + 1) % words.length;
+                    rotator.textContent = words[wi];
+                    rotator.classList.remove("fade");
+                    setTimeout(rotCycle, 3000);
+                }, 400);
+            };
+            setTimeout(rotCycle, 3000);
+        }
+
     </script>
 
-    <script>
-    // Scroll reveal (2026-10-17)
-    (function () {
-        var els = document.querySelectorAll('.reveal');
-        if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
-        var io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
-        }, { threshold: 0.12 });
-        els.forEach(function (e) { io.observe(e); });
-    })();
-    </script>
 </body>
 </html>
